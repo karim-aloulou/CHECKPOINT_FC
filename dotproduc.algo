@@ -1,0 +1,60 @@
+ALGORITHM checkpoinnt_FP
+VAR
+    vect_A,vect_B : ARRAY_OF type[1];// case 0 pour les abs case 1 pour les ord
+    
+BEGIN
+    
+ PROCEDURE dotProduct(vect_A, vect_B)
+    VAR 
+    PS=0:FLOAT
+    BEGIN
+       FOR i FROM 0 TO 1 STEP 1  DO
+           FOR j FROM 1 TO 0 STEP -1  DO
+         PS=PS+ vect_A[i]*vect_B[j]  ;
+           END_FOR
+       END_FOR
+PS=PS*cos(vect_A,vect_B);
+Write(PS); 
+    END
+END
+////////////////////////////////////////////////
+     ALGORITHM orthogonal_or_not
+    VAR
+        vect_A : ARRAY_OF INTEGER[];
+                vect_B : ARRAY_OF INTEGER[];
+
+    BEGIN
+
+product= dotProduct(vect_A, vect_B)
+if(product==0)
+{
+    write ("A and B are orthogonal");
+}
+else 
+{
+    write ("A and B are not orthogonal");
+}
+
+    END
+
+///////////////////////////////////////////////::
+ALGORITHM checkpoinnt_FP
+VAR
+    vect_A,vect_B : ARRAY_OF type[1];// case 0 pour les abs case 1 pour les ord
+    
+BEGIN
+    
+FUNCTION dotProduct(vect_A, vect_B):FLOAT
+    VAR 
+    PS=0:FLOAT
+    BEGIN
+       FOR i FROM 0 TO 1 STEP 1  DO
+           FOR j FROM 1 TO 0 STEP -1  DO
+         PS=PS+ vect_A[i]*vect_B[j]  ;
+           END_FOR
+       END_FOR
+PS=PS*cos(vect_A,vect_B);
+RETURN (PS)
+    END
+END
+
